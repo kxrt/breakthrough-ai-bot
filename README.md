@@ -21,3 +21,7 @@
     - `Read Message History`
   - Tap on `Copy` and invite your bot to your server.
 - Run `main.py`, and enjoy playing!
+
+# Sample Screenshot
+
+![Sample Screenshot](./ai-bot-sample.png)

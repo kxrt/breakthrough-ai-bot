@@ -11,11 +11,11 @@ client = discord.Client(intents=intents)
 game = None
 
 @client.event
-async def on_ready():
-  print("{0.user} is ready!".format(client))
-
-@client.event
 async def on_message(message):
+  '''
+  Handles messages sent to the bot.
+  Only acknowledges messages that start with "!!".
+  '''
   global game
   if message.author == client.user:
     return
