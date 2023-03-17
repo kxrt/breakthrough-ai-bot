@@ -42,28 +42,33 @@ async def on_message(message):
         if len(move) != 4:
           await message.channel.send("Invalid move!")
         else:
-          # Execute move
-          src = (int(move[0]), int(move[1]))
-          dst = (int(move[2]), int(move[3]))
-          res = game.play(src, dst)
-          # Check move validity
-          if res == "Invalid move!":
-            await message.channel.send(res + " Try again.")
-          else:
-            await message.channel.send(res)
-            # Check game state
-            if game.is_over():
-              await message.channel.send("Game over!")
-              game = None
+          try:
+            # Execute move
+            src = (int(move[0]), int(move[1]))
+            dst = (int(move[2]), int(move[3]))
+            res = game.play(src, dst)
+            # Check move validity
+            if res == "Invalid move!":
+              await message.channel.send(res + " Try again.")
             else:
-              # Make a move (AI)
-              await message.channel.send("AI's turn!")
-              game.play_AI()
-              await message.channel.send(game.print_state())
+              await message.channel.send(res)
               # Check game state
               if game.is_over():
                 await message.channel.send("Game over!")
                 game = None
-              else: await message.channel.send("It's your turn!")
+              else:
+                # Make a move (AI)
+                await message.channel.send("AI's turn!")
+                game.play_AI()
+                await message.channel.send(game.print_state())
+                # Check game state
+                if game.is_over():
+                  await message.channel.send("Game over!")
+                  game = None
+                else: await message.channel.send("It's your turn!")
+          except:
+            # Handle non-integer inputs
+            await message.channel.send("Invalid move! Try again.")
+          
 
 client.run(TOKEN)

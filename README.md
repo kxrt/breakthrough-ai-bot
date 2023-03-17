@@ -25,3 +25,7 @@
 # Sample Screenshot
 
 ![Sample Screenshot](./ai-bot-sample.png)
+
+# Known Issues
+
+- The bot's messages are not formatted for smaller screens.
