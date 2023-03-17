@@ -25,8 +25,10 @@
 # Usage Instructions
 
 - The bot will automatically join any server it is invited to.
+- You will be playing as the `W` player.
 - `!!new` will start a new game.
 - `!!move src_x src_y dest_x dest_y` will move a piece from `(src_x, src_y)` to `(dest_x, dest_y)`.
+  - The rows and columns have been numbered to make movement easier.
 - The bot will announce when it is your turn.
 - The bot will announce when the game is over.
 
